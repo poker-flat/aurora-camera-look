@@ -1,0 +1,12 @@
+{
+  "name": "aurora-camera-look",
+  "description": "A server app that translates SIPS ELTAS data to a webpage displaying the look angle of a camera for a rocket.",
+  "author": "Jonathan Sawyer <jmsawyer@alaska.edu>",
+  "dependencies": {
+    "mocha": ""
+  },
+  "devDependencies": {
+    "mocha": "",
+  },
+  "engine": "node >= 0.6.15"
+}
