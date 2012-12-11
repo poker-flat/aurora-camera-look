@@ -7,6 +7,8 @@
 
 // Requires
 var dgram = require("dgram");
+var winston = require("winston");
+var nconf = require("nconf");
 //var sys = require("util");
 //var http = require("http");
 //var url = require("url");
@@ -15,18 +17,32 @@ var dgram = require("dgram");
 //var nowjs = require("now");
 //var Point = require("./js/Point");
 
+nconf.argv().env().file({ file: 'config.json' })
+
+var date = new Date();
+var logger = new winston.Logger({
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({
+            filename: nconf.get("log:dir")+"/"+date.toISOString()+"_.log",
+            maxsize: nconf.get("log:maxsize"),
+            json: nconf.get("log:json")
+        })
+    ]
+});
+
 var server = dgram.createSocket("udp4");
 
 server.on("message", function (msg, rinfo) {
-  console.log("server got: " + msg + " from " +
+  logger.info("server got: " + msg + " from " +
     rinfo.address + ":" + rinfo.port);
 });
 
 server.on("listening", function () {
   var address = server.address();
-  console.log("server listening " +
+  logger.info("server listening " +
       address.address + ":" + address.port);
 });
 
-server.bind(41234);
+server.bind(nconf.get("ultra:port"), nconf.get("ultra:host"));
 

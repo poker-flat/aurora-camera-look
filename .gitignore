@@ -1,3 +1,5 @@
 # remove temp files
 *~
 node_modules/
+config.json
+

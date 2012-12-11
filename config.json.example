@@ -1,0 +1,5 @@
+{
+  "host": "localhost",
+  "port": 41234,
+  "log": "logs/log.log"
+}
