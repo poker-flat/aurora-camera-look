@@ -37,31 +37,27 @@ $ cp config.json.example config.json
 
 Options
 -------
-env - one of "development" or "production"
-ultra:host - the IP address to bind the server to when listening for SIPS/ULTRA
-             UDP traffic (default "localhost")
-ultra:port - the port to listen for the SIPS/ULTRA UDP traffic (default: 41234)
-http:host - the IP address to bind the HTTP server (default: "localhost")
-http:port - the port to bind the HTTP server (default: 8080)
-log:dir - the directory where the logs should be kept (default: "logs/")
-log:maxsize - the maximum size in bytes of the log file. Files will be renamed
-              to file#.log (i.e., logfile1.log, logfile2.log, etc.)
-              (default: 2097152)
-log:json - true if you want to log all data as JSON. false otherwise.
-           (default: false)
+* env - one of "development" or "production"
+* ultra:host - the IP address to bind the server to when listening forSIPS/ULTRA UDP traffic (default "localhost")
+* ultra:port - the port to listen for the SIPS/ULTRA UDP traffic (default: 41234)
+* http:host - the IP address to bind the HTTP server (default: "localhost")
+* http:port - the port to bind the HTTP server (default: 8080)
+* log:dir - the directory where the logs should be kept (default: "logs/")
+* log:maxsize - the maximum size in bytes of the log file. Files will be renamed to file#.log (i.e., logfile1.log, logfile2.log, etc.) (default: 2097152)
+* log:json - true if you want to log all data as JSON. false otherwise. (default: false)
 
 Run the server
 ==============
 
-$ node server
+    $ node server
 
 Test with the client
 ====================
 
-$ node client
+    $ node client
 
 Run unit tests
 ==============
 
-$ mocha
+    $ mocha
 
