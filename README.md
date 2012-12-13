@@ -36,7 +36,7 @@ Configuration
 Options
 -------
 * env - one of "development" or "production"
-* ultra:host - the IP address to bind the server to when listening forSIPS/ULTRA UDP traffic (default "localhost")
+* ultra:host - the IP address to bind the server to when listening for SIPS/ULTRA UDP traffic (default "localhost")
 * ultra:port - the port to listen for the SIPS/ULTRA UDP traffic (default: 41234)
 * http:host - the IP address to bind the HTTP server (default: "localhost")
 * http:port - the port to bind the HTTP server (default: 8080)
