@@ -1,5 +1,17 @@
 {
-  "host": "localhost",
-  "port": 41234,
-  "log": "logs/log.log"
+  "env": "development",
+  "ultra": {
+    "host": "localhost"
+    "port": 41234
+  },
+  "http": {
+    "host": "localhost",
+    "port": 8080
+  },
+  "log": {
+    "dir": "logs/",
+    "maxsize": 2097152,
+    "json": false
+  }
 }
+

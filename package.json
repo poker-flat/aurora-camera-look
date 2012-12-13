@@ -3,10 +3,14 @@
   "description": "A server app that translates SIPS ELTAS data to a webpage displaying the look angle of a camera for a rocket.",
   "author": "Jonathan Sawyer <jmsawyer@alaska.edu>",
   "dependencies": {
-    "mocha": ""
+    "nconf": "0.6.x",
+    "winston": "0.6.x"
   },
   "devDependencies": {
-    "mocha": "",
+    "mocha": "1.7.x",
+    "line-reader": "0.2.x",
+    "string": "1.1.x"
   },
-  "engine": "node >= 0.6.15"
+  "engine": "node >= 0.8.x"
 }
+
