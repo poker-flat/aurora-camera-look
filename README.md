@@ -14,26 +14,24 @@ This project uses Node:
 
     URL: http://nodejs.org/download/
 
-To install dependences, use NPM:
+To install dependencies, use NPM:
 
     $ [sudo] curl http://npmjs.org/install.sh | sh
 
-Requires Mocha for testing:
+Requires:
 
-    $ [sudo] npm install mocha
+ * `mocha` for testing
+ * `winston` for logging
+ * `string` for the test client
+ * `nconf` for configuration
+ * `line-reader` for the test client
 
-Requires Winston for logging:
-
-    $ [sudo] npm install winston
-
-Requires nconf for configuration:
-
-    $ [sudo] npm install nconf
+    $ [sudo] npm install
 
 Configuration
 =============
 
-$ cp config.json.example config.json
+    $ cp config.json.example config.json
 
 Options
 -------
