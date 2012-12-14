@@ -11,6 +11,11 @@ var lineReader = require('line-reader');
 var S = require("string"); // for trim
 var client = dgram.createSocket("udp4");
 
+var filenames = [
+    "./raw/Powell_302bytes_hex.txt",
+    "./raw/Powell_hex.txt"
+];
+
 function parseLine(line, last, callback) {
     var l = S(line).trim().s;
     //console.log(l)
@@ -28,10 +33,17 @@ function parseLine(line, last, callback) {
 function getLine(line, last, callback) {
     setTimeout(function() {
         parseLine(line, last, callback);
-    }, 100);
+    }, 10);
 }
 
-lineReader.eachLine('./raw/Powell_hex.txt', getLine);
+function doIt() {
+    console.log("Sending lines...");
+    lineReader.eachLine(filenames[0], getLine);
+}
+
+setInterval(doIt, 600*10);
+
+doIt();
 
 /*
 var message = new Buffer("Some bytes");
