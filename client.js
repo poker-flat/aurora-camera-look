@@ -24,7 +24,6 @@ function parseLine(line, last, callback) {
     //console.log(buf.toString('binary'));
     client.send(buf, 0, buf.length, 41234, "localhost"/*, function(err, bytes) {}*/);
     if (last) {
-        client.close();
         return false;
     }
     callback();
@@ -33,7 +32,7 @@ function parseLine(line, last, callback) {
 function getLine(line, last, callback) {
     setTimeout(function() {
         parseLine(line, last, callback);
-    }, 10);
+    }, 100);
 }
 
 function doIt() {
@@ -41,7 +40,7 @@ function doIt() {
     lineReader.eachLine(filenames[0], getLine);
 }
 
-setInterval(doIt, 600*10);
+setInterval(doIt, 600*100);
 
 doIt();
 

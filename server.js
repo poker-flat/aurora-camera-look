@@ -9,7 +9,7 @@
 var dgram = require("dgram");
 var winston = require("winston");
 var nconf = require("nconf");
-var parser = require("./lib/ultra_parser.js");
+var UltraParser = require("./lib/ultra_parser.js");
 //var sys = require("util");
 //var http = require("http");
 //var url = require("url");
@@ -31,20 +31,25 @@ var logger = new winston.Logger({
         })
     ]
 });
+var parser = new UltraParser(logger);
+
+parser.on('err', function(err) {
+    logger.info('Error: ' + err['error']);
+});
 
 var server = dgram.createSocket("udp4");
 
 server.on("message", function (msg, rinfo) {
-  logger.info("server got: " + msg + " from " +
-    rinfo.address + ":" + rinfo.port);
-  logger.info("Running ultra parser...");
-  parser(msg.toString());
+    logger.info("server got: message from " +
+                rinfo.address + ":" + rinfo.port);
+    logger.info("Running ultra parser...");
+    parser.parse(msg);
 });
 
 server.on("listening", function () {
-  var address = server.address();
-  logger.info("server listening " +
-      address.address + ":" + address.port);
+    var address = server.address();
+    logger.info("server listening " +
+                address.address + ":" + address.port);
 });
 
 server.bind(nconf.get("ultra:port"), nconf.get("ultra:host"));
