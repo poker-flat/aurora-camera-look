@@ -33,8 +33,8 @@ var logger = new winston.Logger({
 });
 var parser = new UltraParser(logger);
 
-parser.on('err', function(err) {
-    logger.info('Error: ' + err['error']);
+parser.on("err", function(msg) {
+    logger.info('Error: ' + msg);
 });
 
 var server = dgram.createSocket("udp4");
