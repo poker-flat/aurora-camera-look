@@ -40,7 +40,7 @@ function doIt() {
     lineReader.eachLine(filenames[0], getLine);
 }
 
-setInterval(doIt, 600*100);
+setInterval(doIt, 600*100+2000);
 
 doIt();
 
